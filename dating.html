@@ -182,65 +182,65 @@
     </div>
   </nav>
 
-  <!-- Main Section (Support Boxes) -->
-  <section class="py-5">
-    <div class="container">
-      <div class="p-4 p-md-5 rounded-4" style="background-color: #ffffff;">
-        <h2 class="text-center mb-5 text-dark">Dating Site Support Numbers</h2>
-        <div class="row">
+   <!-- Main Section (Support Boxes) -->
+<section class="py-5">
+  <div class="container">
+    <div class="p-4 p-md-5 rounded-4" style="background-color: #ffffff;">
+      <h2 class="text-center mb-5 text-dark">Dating Site Support Numbers</h2>
+      <div class="row">
 
-          <!-- Box 1 -->
-          <div class="col-md-4">
-            <div class="support-box text-center" id="box1">
-              <i class="bi bi-chat-dots-fill display-4 text-danger"></i>
-              <h4 class="mt-3">Plenty of Fish</h4>
-              <p>Get customer support for account issues, billing inquiries, and technical problems.</p>
-              <div class="toll-number" id="number1">
-                <span>1-800-555-0199</span>
-                <button class="copy-btn" onclick="copyNumber('1-800-555-0199', this)" title="Copy Number">
-                  <i class="bi bi-clipboard"></i>
-                </button>
-              </div>
-              <button class="btn btn-custom mt-2" onclick="toggleNumber('box1', 'number1')">Show Toll-Free Number</button>
+        <!-- Box 1 -->
+        <div class="col-md-4">
+          <div class="support-box text-center" id="box1">
+            <i class="bi bi-chat-dots-fill display-4 text-danger"></i>
+            <h4 class="mt-3">Plenty of Fish</h4>
+            <p>Get customer support for account issues, billing inquiries, and technical problems.</p>
+            <div class="toll-number" id="number1">
+              <span>1-800-555-0199</span>
+              <button class="copy-btn" onclick="copyNumber('1-800-555-0199', this)" title="Copy Number">
+                <i class="bi bi-clipboard"></i>
+              </button>
             </div>
+            <button class="btn btn-custom mt-2" onclick="toggleNumber('box1', 'number1', this)">Show Toll-Free Number</button>
           </div>
-
-          <!-- Box 2 -->
-          <div class="col-md-4">
-            <div class="support-box text-center" id="box2">
-              <i class="bi bi-people-fill display-4 text-success"></i>
-              <h4 class="mt-3">Zoosk</h4>
-              <p>Contact Zoosk's customer service for subscription changes, profile assistance, and more.</p>
-              <div class="toll-number" id="number2">
-                <span>1-800-555-0199</span>
-                <button class="copy-btn" onclick="copyNumber('1-800-555-0199', this)" title="Copy Number">
-                  <i class="bi bi-clipboard"></i>
-                </button>
-              </div>
-              <button class="btn btn-custom mt-2" onclick="toggleNumber('box2', 'number2')">Show Toll-Free Number</button>
-            </div>
-          </div>
-
-          <!-- Box 3 -->
-          <div class="col-md-4">
-            <div class="support-box text-center" id="box3">
-              <i class="bi bi-heart-fill display-4 text-pink"></i>
-              <h4 class="mt-3">eHarmony</h4>
-              <p>Reach eHarmony support for matching algorithm questions, payment issues, and account help.</p>
-              <div class="toll-number" id="number3">
-                <span>1-800-555-0199</span>
-                <button class="copy-btn" onclick="copyNumber('1-800-555-0199', this)" title="Copy Number">
-                  <i class="bi bi-clipboard"></i>
-                </button>
-              </div>
-              <button class="btn btn-custom mt-2" onclick="toggleNumber('box3', 'number3')">Show Toll-Free Number</button>
-            </div>
-          </div>
-
         </div>
+
+        <!-- Box 2 -->
+        <div class="col-md-4">
+          <div class="support-box text-center" id="box2">
+            <i class="bi bi-people-fill display-4 text-success"></i>
+            <h4 class="mt-3">Zoosk</h4>
+            <p>Contact Zoosk's customer service for subscription changes, profile assistance, and more.</p>
+            <div class="toll-number" id="number2">
+              <span>1-800-555-0199</span>
+              <button class="copy-btn" onclick="copyNumber('1-800-555-0199', this)" title="Copy Number">
+                <i class="bi bi-clipboard"></i>
+              </button>
+            </div>
+            <button class="btn btn-custom mt-2" onclick="toggleNumber('box2', 'number2', this)">Show Toll-Free Number</button>
+          </div>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="col-md-4">
+          <div class="support-box text-center" id="box3">
+            <i class="bi bi-heart-fill display-4 text-pink"></i>
+            <h4 class="mt-3">eHarmony</h4>
+            <p>Reach eHarmony support for matching algorithm questions, payment issues, and account help.</p>
+            <div class="toll-number" id="number3">
+              <span>1-800-555-0199</span>
+              <button class="copy-btn" onclick="copyNumber('1-800-555-0199', this)" title="Copy Number">
+                <i class="bi bi-clipboard"></i>
+              </button>
+            </div>
+            <button class="btn btn-custom mt-2" onclick="toggleNumber('box3', 'number3', this)">Show Toll-Free Number</button>
+          </div>
+        </div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- New Section (Customer Support Info) -->
   <section class="info-section">
@@ -347,6 +347,29 @@
       });
     }
   </script>
+<script>
+  function toggleNumber(boxId, numberId, button) {
+    const box = document.getElementById(boxId);
+    const numberDiv = document.getElementById(numberId);
+    box.classList.toggle('active');
+    numberDiv.classList.toggle('visible');
+    
+    // Toggle the button text
+    if (numberDiv.classList.contains('visible')) {
+      button.innerHTML = "Hide Toll-Free Number";
+    } else {
+      button.innerHTML = "Show Toll-Free Number";
+    }
+  }
 
+  function copyNumber(number, btn) {
+    navigator.clipboard.writeText(number).then(() => {
+      btn.innerHTML = '<i class="bi bi-clipboard-check text-success"></i>';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="bi bi-clipboard"></i>';
+      }, 1500);
+    });
+  }
+</script>
 </body>
 </html>
