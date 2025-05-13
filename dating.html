@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dating Support Finder</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #fdf3f7;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: #e83e8c;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: #333;
+    }
+
+    .support-box {
+      transition: all 0.3s ease;
+      border-radius: 16px;
+      padding: 25px;
+      background: #fff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .support-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .support-box.active {
+      background-color: #fff0f5;
+    }
+
+    .toll-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #d63384;
+      margin-bottom: 12px;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .toll-number.visible {
+      opacity: 1;
+      height: auto;
+    }
+
+    .copy-btn {
+      margin-left: 10px;
+      border: none;
+      background: transparent;
+      color: #6c757d;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .copy-btn:hover {
+      color: #d63384;
+    }
+
+    .btn-custom {
+      background: linear-gradient(135deg, #f783ac, #f8a6c1);
+      color: #fff;
+      border: none;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background: linear-gradient(135deg, #f06595, #f783ac);
+    }
+
+    /* New Section Styles */
+    .info-section {
+/*      background-color: #ffffff;*/
+      padding: 40px 0;
+      border-radius: 15px;
+/*      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);*/
+      margin-bottom: 40px;
+    }
+
+    .info-section i {
+      font-size: 40px;
+      color: #f06595;
+    }
+
+    .info-section h3 {
+      color: #333;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    .info-section p {
+      color: #6c757d;
+      font-size: 1.1rem;
+    }
+
+    .faq-section {
+/*      background-color: #ffffff;*/
+      padding: 40px 0;
+      border-radius: 15px;
+/*      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);*/
+      margin-bottom: 40px;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .faq-answer {
+      font-size: 1rem;
+      color: #6c757d;
+      padding-left: 20px;
+    }
+
+    .contact-section {
+      background-color: #f8d7da;
+      padding: 40px 0;
+      border-radius: 15px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .contact-section h3 {
+      color: #d63384;
+    }
+
+    .contact-section p {
+      font-size: 1.1rem;
+      color: #6c757d;
+    }
+     /* Footer */
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">Dating Support Finder</a>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Section (Support Boxes) -->
+  <section class="py-5">
+    <div class="container">
+      <div class="p-4 p-md-5 rounded-4" style="background-color: #ffffff;">
+        <h2 class="text-center mb-5 text-dark">Dating Site Support Numbers</h2>
+        <div class="row">
+
+          <!-- Box 1 -->
+          <div class="col-md-4">
+            <div class="support-box text-center" id="box1">
+              <i class="bi bi-chat-dots-fill display-4 text-danger"></i>
+              <h4 class="mt-3">Plenty of Fish</h4>
+              <p>Get customer support for account issues, billing inquiries, and technical problems.</p>
+              <div class="toll-number" id="number1">
+                <span>1-800-555-0199</span>
+                <button class="copy-btn" onclick="copyNumber('1-800-555-0199', this)" title="Copy Number">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+              <button class="btn btn-custom mt-2" onclick="toggleNumber('box1', 'number1')">Show Toll-Free Number</button>
+            </div>
+          </div>
+
+          <!-- Box 2 -->
+          <div class="col-md-4">
+            <div class="support-box text-center" id="box2">
+              <i class="bi bi-people-fill display-4 text-success"></i>
+              <h4 class="mt-3">Zoosk</h4>
+              <p>Contact Zoosk's customer service for subscription changes, profile assistance, and more.</p>
+              <div class="toll-number" id="number2">
+                <span>1-800-555-0199</span>
+                <button class="copy-btn" onclick="copyNumber('1-800-555-0199', this)" title="Copy Number">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+              <button class="btn btn-custom mt-2" onclick="toggleNumber('box2', 'number2')">Show Toll-Free Number</button>
+            </div>
+          </div>
+
+          <!-- Box 3 -->
+          <div class="col-md-4">
+            <div class="support-box text-center" id="box3">
+              <i class="bi bi-heart-fill display-4 text-pink"></i>
+              <h4 class="mt-3">eHarmony</h4>
+              <p>Reach eHarmony support for matching algorithm questions, payment issues, and account help.</p>
+              <div class="toll-number" id="number3">
+                <span>1-800-555-0199</span>
+                <button class="copy-btn" onclick="copyNumber('1-800-555-0199', this)" title="Copy Number">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+              </div>
+              <button class="btn btn-custom mt-2" onclick="toggleNumber('box3', 'number3')">Show Toll-Free Number</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Section (Customer Support Info) -->
+  <section class="info-section">
+    <div class="container">
+      <h2 class="text-center mb-5 text-dark">Dating Site Customer Support</h2>
+      <div class="row text-center">
+        <div class="col-md-6">
+          <i class="bi bi-telephone-fill"></i>
+          <h3 class="mt-3">Direct Support Lines</h3>
+          <p>Get in touch directly with the customer service teams of popular dating sites for quick resolutions.</p>
+        </div>
+        <div class="col-md-6">
+          <i class="bi bi-journal-text"></i>
+          <h3 class="mt-3">All Major Platforms</h3>
+          <p>Support numbers available for all major dating platforms including Plenty of Fish, Zoosk, eHarmony, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Section (How It Works) -->
+  <section class="info-section">
+    <div class="container">
+      <div class="p-4 p-md-5 rounded-4" style="background-color: #ffffff;">
+      <h2 class="text-center mb-5 text-dark">How It Works</h2>
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <i class="bi bi-search display-4 text-primary"></i>
+          <h3 class="mt-3">1. Find Your Platform</h3>
+          <p>Locate the dating platform you need assistance with from our curated list.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <i class="bi bi-phone display-4 text-success"></i>
+          <h3 class="mt-3">2. View Contact Info</h3>
+          <p>Click the button to reveal the direct toll-free customer service number.</p>
+        </div>
+        <div class="col-md-4 text-center">
+          <i class="bi bi-person-lines-fill display-4 text-danger"></i>
+          <h3 class="mt-3">3. Connect Directly</h3>
+          <p>Call the number to get connected with a customer support representative.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- New Section (FAQ) -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="p-4 p-md-5 rounded-4" style="background-color: #ffffff;">
+      <h2 class="text-center mb-5 text-dark">Frequently Asked Questions</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="faq-question">Are these official support numbers?</div>
+          <div class="faq-answer">Yes, we provide official customer service numbers for each dating platform listed.</div>
+        </div>
+        <div class="col-md-6">
+          <div class="faq-question">What hours are support teams available?</div>
+          <div class="faq-answer">Most dating sites offer customer support during business hours (9 AM - 5 PM), but exact hours vary by platform.</div>
+        </div>
+        <div class="col-md-6">
+          <div class="faq-question">Can I request assistance via email instead?</div>
+          <div class="faq-answer">Yes, most dating platforms offer email support as well, but phone support typically provides faster resolution.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- New Section (Contact Us) -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="p-4 p-md-5 rounded-4" style="background-color: #ffffff;">
+      <h3>Contact Us</h3>
+      <p>If you notice any outdated information or would like to suggest additional dating platforms to include, please reach out to our team.</p>
+      <button class="btn btn-custom mt-3">Contact Our Team</button>
+    </div>
+  </div>
+  </section>
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+  <p>&copy; 2025 Dating Support Finder. All rights reserved.</p>
+  <p>This is an informational service only. We are not affiliated with any dating sites mentioned.</p>
+</footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script>
+    function toggleNumber(boxId, numberId) {
+      const box = document.getElementById(boxId);
+      const numberDiv = document.getElementById(numberId);
+      box.classList.toggle('active');
+      numberDiv.classList.toggle('visible');
+    }
+
+    function copyNumber(number, btn) {
+      navigator.clipboard.writeText(number).then(() => {
+        btn.innerHTML = '<i class="bi bi-clipboard-check text-success"></i>';
+        setTimeout(() => {
+          btn.innerHTML = '<i class="bi bi-clipboard"></i>';
+        }, 1500);
+      });
+    }
+  </script>
+
+</body>
+</html>
